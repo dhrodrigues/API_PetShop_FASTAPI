@@ -1,0 +1,8 @@
+Projeto Petshop
+
+Objetivo ter um programa utilizando FastAPI para realização de cadastros de agendamento dos pets 
+
+1 - Cadastro do Dono "Pai do pet"
+2 - Cadastro do Pet
+3 - agendamento e selecionar o serviço a ser utilizando
+
