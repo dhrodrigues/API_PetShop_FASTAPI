@@ -6,22 +6,22 @@ from pydantic import BaseModel, Field
 class DonoSchema(BaseModel):
     id: int
     name: str=Field(..., example="João")
-    document: str
-    bornDate: str
+    born_date: date
     email: str
-    phoneNumber: Optional[str]
-    telefone: str
+    document: str
+    phone_number: Optional[str]
     created_at: datetime
     updated_at: datetime
-    
+
     class Config:
         orm_mode = True
 
 
 class DonoSchemaCreate(BaseModel):
-    name: str
+    name: str =Field(..., example="João")
+    born_date: date=Field(..., example="01/05/1994")
     document: str
-    email: str
+    email: str=Field(..., example="joao@gmail.com")
     phone_number: str
 
     class Config:
