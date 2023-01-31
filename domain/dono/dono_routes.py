@@ -9,11 +9,12 @@ from domain.dono import dono_service
 
 router = APIRouter()
 
-@router.post("/", summary="Operação responsável por criar uma nova conta.",response_model=DonoSchema)
+@router.post("/", summary="Operação responsável por criar uma nova tutor.",response_model=DonoSchema)
 def create_account(body: DonoSchemaCreate, db: Session = Depends(get_db)):
     return dono_service.create(db, body)
 
-@router.get("/{id}", summary= "Operação por retornar apenas um dono", response_model=List[DonoSchema])
+@router.get("/{id}", summary= "Operação por retornar apenas um tutor",
+            response_model=List[DonoSchema])
 def get_user(id:int, db: Session = Depends(get_db)):
     return dono_service.get_dono(db, id)
 

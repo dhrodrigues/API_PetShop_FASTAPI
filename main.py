@@ -9,7 +9,7 @@ setup_routes(app)
 
 @app.get("/")
 def root() -> str:
-    return "Welcome to New Life Bank"
+    return "Bem-vindo ao PET Cat&Dog"
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="127.0.0.1", port=20050, reload=True)

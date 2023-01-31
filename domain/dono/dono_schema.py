@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 
 class DonoSchema(BaseModel):
     id: int
-    name: str=Field(..., example="João")
+    name: str=Field(..., example="Diego")
     born_date: date
     email: str
     document: str
@@ -19,7 +19,7 @@ class DonoSchema(BaseModel):
 
 class DonoSchemaCreate(BaseModel):
     name: str =Field(..., example="João")
-    born_date: date=Field(..., example="01/05/1994")
+    born_date: date=Field(..., example="AAAA-MM-DD")
     document: str
     email: str=Field(..., example="joao@gmail.com")
     phone_number: str

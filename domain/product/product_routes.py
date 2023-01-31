@@ -4,19 +4,19 @@ from fastapi.routing import APIRouter
 from config.database import get_db
 from fastapi import status,HTTPException
 from sqlalchemy.orm.session import Session
-from domain.pet.pet_schema import PetSchema, PetSchemaCreate
-from domain.pet import pet_service
+from domain.product.product_schema import ProductSchema, ProductSchemaCreate
+from domain.product import product_service
 
 router = APIRouter()
 
 @router.get("/",
             summary="Operação tutor por retornar todos os animais cadastrados.",
-            response_model=List[PetSchema])
-def get_pets(db: Session = Depends(get_db)):
-    return pet_service.get_pets(db)
+            response_model=List[ProductSchema])
+def get_products(db: Session = Depends(get_db)):
+    return product_service.get_products(db)
 
 @router.post("/",
              summary="Operação responsável por cadastrar novos pets.",
-             response_model=PetSchema)
-def create_pet(body: PetSchemaCreate, db: Session = Depends(get_db)):
-    return pet_service.create(db, body)
+             response_model=ProductSchema)
+def create_pet(body: ProductSchemaCreate, db: Session = Depends(get_db)):
+    return product_service.create(db, body)
