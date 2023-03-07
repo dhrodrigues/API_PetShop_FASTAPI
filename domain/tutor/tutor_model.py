@@ -6,8 +6,8 @@ from sqlalchemy import Column, Integer, String
 
 
 
-class Dono(Base):
-    __tablename__ = "dono"
+class Tutor(Base):
+    __tablename__ = "tutor"
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)

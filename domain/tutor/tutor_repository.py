@@ -1,5 +1,5 @@
 from commons.base_repository import BaseRepository
 
 
-class DonoRepository(BaseRepository):
+class TutorRepository(BaseRepository):
     pass

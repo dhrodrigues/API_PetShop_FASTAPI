@@ -4,25 +4,25 @@ from fastapi.routing import APIRouter
 from config.database import get_db
 from fastapi import status,HTTPException
 from sqlalchemy.orm.session import Session
-from domain.dono.dono_schema import DonoSchema, DonoSchemaCreate
-from domain.dono import dono_service
+from domain.tutor.tutor_schema import TutorSchema, TutorSchemaCreate
+from domain.tutor import tutor_service
 
 router = APIRouter()
 
-@router.post("/", summary="Operação responsável por criar uma nova tutor.",response_model=DonoSchema)
-def create_account(body: DonoSchemaCreate, db: Session = Depends(get_db)):
-    return dono_service.create(db, body)
+@router.post("/", summary="Operação responsável por criar uma nova tutor.",response_model=TutorSchema)
+def create_tutores(body: TutorSchemaCreate, db: Session = Depends(get_db)):
+    return tutor_service.create(db, body)
 
 @router.get("/{id}", summary= "Operação por retornar apenas um tutor",
-            response_model=List[DonoSchema])
+            response_model=List[TutorSchema])
 def get_user(id:int, db: Session = Depends(get_db)):
-    return dono_service.get_dono(db, id)
+    return tutor_service.get_tutor(db, id)
 
 @router.get("/",
             summary="Lista usuarios.",
-            response_model=List[DonoSchema])
+            response_model=List[TutorSchema])
 def get_users(db: Session = Depends(get_db)):
-    return dono_service.get_donos(db)
+    return tutor_service.get_tutores(db)
 
 
 

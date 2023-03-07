@@ -3,7 +3,7 @@ from datetime import date, datetime
 from pydantic import BaseModel, Field
 
 
-class DonoSchema(BaseModel):
+class TutorSchema(BaseModel):
     id: int
     name: str=Field(..., example="Diego")
     born_date: date
@@ -17,7 +17,7 @@ class DonoSchema(BaseModel):
         orm_mode = True
 
 
-class DonoSchemaCreate(BaseModel):
+class TutorSchemaCreate(BaseModel):
     name: str =Field(..., example="João")
     born_date: date=Field(..., example="AAAA-MM-DD")
     document: str
